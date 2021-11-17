@@ -1,5 +1,5 @@
 # PKR-HOI: Priori Knowledge Reasoning for Human-Object Interaction Detection
-
+PKR-HOI is a priori knowledge based framework that models scene context, human and object features, action recognition, and interaction relationship in a unified way for accurate HOI prediction. PKR-HOI aggregates the different-level features and attention mechanism in the transformer, and as a result, achieves high HOI detection performance with HOI decoder.
 <div align="center">
   <img src="Figure/overview.png" width="900px" />
 </div>
@@ -8,7 +8,6 @@ Figure 1. The overall architecture of PKR-HOI. PKR-HOI includes an image process
 (2) The instance localization sub-network locates the humans and objects, and models their representations. 
 (3) The HOI detection sub-network infers the human-object interactions by incorporating both the global context, individual human/object and action features.
 <hr/>
-PKR-HOI is a priori knowledge based framework that models scene context, human and object features, action recognition, and interaction relationship in a unified way for accurate HOI prediction. PKR-HOI aggregates the different-level features and attention mechanism in the transformer, and as a result, achieves high HOI detection performance with HOI decoder.
 <div align="center">
   <img src="Figure/f2.png" width="900px" />
 </div>
