@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="Figure/overview.png" width="900px" />
-    <p Figure 1/>
+    <p>Figure 1</p>
 </div>
 
 
@@ -10,14 +10,15 @@ Figure 1. PKR-HOI is a priori knowledge based framework that models scene contex
 
 <div align="center">
   <img src="Figure/f2.png" width="900px" />
-    <p Figure 2/>
+    <p>Figure 2</p>
 </div>
+<hr/>
 
 Figure 2. Leveraging the action recognition sub-network. The top row shows the HOI prediction without the action recognition network, and the bottom row shows the results with the action recognition sub-network.
 
 <div align="center">
   <img src="Figure/f1.png" width="900px" />
-	<p Figure 3/>
+	<p>Figure 3</p>
 	<br>
 </div>
 
