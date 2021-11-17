@@ -2,7 +2,6 @@
 
 <div align="center">
   <img src="Figure/overview.png" width="900px" />
-    <p>Figure 1</p>
 </div>
 Figure 1. The overall architecture of PKR-HOI. PKR-HOI includes an image processing backbone and three transformer-based sub-networks: 
 (1) The action recognition sub-network models the action-related scene context. 
