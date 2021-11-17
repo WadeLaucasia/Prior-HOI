@@ -4,7 +4,10 @@
   <img src="Figure/overview.png" width="900px" />
     <p>Figure 1</p>
 </div>
-Figure 1. The overall architecture of PKR-HOI. PKR-HOI includes an image processing backbone and three transformer-based subnetworks: (1) The action recognition sub-network models the action-related scene context. (2) The instance localization sub-network locates the humans and objects, and models their representations. (3) The HOI detection sub-network infers the human-object interactions by incorporating both the global context, individual human/object and action features.
+Figure 1. The overall architecture of PKR-HOI. PKR-HOI includes an image processing backbone and three transformer-based sub-networks: 
+(1) The action recognition sub-network models the action-related scene context. 
+(2) The instance localization sub-network locates the humans and objects, and models their representations. 
+(3) The HOI detection sub-network infers the human-object interactions by incorporating both the global context, individual human/object and action features.
 <hr/>
 <div align="center">
   <img src="Figure/f2.png" width="900px" />
