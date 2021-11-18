@@ -1,9 +1,9 @@
-# PKR-HOI: Priori Knowledge Reasoning for Human-Object Interaction Detection
-PKR-HOI is a priori knowledge based framework that models scene context, human and object features, action recognition, and interaction relationship in a unified way for accurate HOI prediction. PKR-HOI aggregates the different-level features and attention mechanism in the transformer, and as a result, achieves high HOI detection performance with HOI decoder.
+# Prior-HOI: Human-Object Interaction Detection with Prior Knowledge
+Prior-HOI is a priori knowledge based framework that models scene context, human and object features, action recognition, and interaction relationship in a unified way for accurate HOI prediction. Prior-HOI aggregates the different-level features and attention mechanism in the transformer, and as a result, achieves high HOI detection performance with HOI decoder.
 <div align="center">
   <img src="Figure/overview.png" width="900px" />
 </div>
-Figure 1. The overall architecture of PKR-HOI. PKR-HOI includes an image processing backbone and three transformer-based sub-networks: 
+Figure 1. The overall architecture of Prior-HOI. Prior-HOI includes an image processing backbone and three transformer-based sub-networks: 
 (1) The action recognition sub-network models the action-related scene context. 
 (2) The instance localization sub-network locates the humans and objects, and models their representations. 
 (3) The HOI detection sub-network infers the human-object interactions by incorporating both the global context, individual human/object and action features.
@@ -16,7 +16,7 @@ Figure 2. Leveraging the action recognition sub-network. The top row shows the H
 <div align="center">
   <img src="Figure/f1.png" width="900px" />
 </div>
-Figure 3. Visualization of the attention maps for HOI decoder. It can be seen from the figure that PKR-HOI pays different attention to the contextual information in the HOI prediction process. PKR-HOI pays more attention to the entities with interactive relationships. Moreover, our method attends to recognize different actions(e.g. *hold* and *stand*) in the same image by paying attention to different areas.
+Figure 3. Visualization of the attention maps for HOI decoder. It can be seen from the figure that Prior-HOI pays different attention to the contextual information in the HOI prediction process. Prior-HOI pays more attention to the entities with interactive relationships. Moreover, our method attends to recognize different actions(e.g. *hold* and *stand*) in the same image by paying attention to different areas.
 <hr/>
 
 ## Preparation
@@ -36,7 +36,7 @@ HICO-DET dataset can be downloaded [here](https://drive.google.com/open?id=1QZcJ
 
 Instead of using the original annotations files, we use the annotation files provided by the PPDM authors. The annotation files can be downloaded from [here](https://drive.google.com/open?id=1WI-gsNLS-t0Kh8TVki1wXqc3y2Ow1f2R). The downloaded annotation files have to be placed as follows.
 ```
-PKR-HOI
+Prior-HOI
  |─ data
  │   └─ hico_20160224_det
  |       |─ annotations
@@ -49,7 +49,7 @@ PKR-HOI
 #### V-COCO
 First clone the repository of V-COCO from [here](https://github.com/s-gupta/v-coco), and then follow the instruction to generate the file `instances_vcoco_all_2014.json`. Next, download the prior file `prior.pickle` from [here](https://drive.google.com/drive/folders/10uuzvMUCVVv95-xAZg5KS94QXm7QXZW4). Place the files and make directories as follows.
 ```
-PKR-HOI
+Prior-HOI
  |─ data
  │   └─ v-coco
  |       |─ data
@@ -79,7 +79,7 @@ Note that only Python2 can be used for this conversion because `vsrl_utils.py` i
 V-COCO annotations with the HOIA format, `corre_vcoco.npy`, `test_vcoco.json`, and `trainval_vcoco.json` will be generated to `annotations` directory.
 
 ### Pre-trained parameters
-Our PKR-HOI have to be pre-trained with the COCO object detection dataset. For the HICO-DET training, this pre-training can be omitted by using the parameters of DETR. The parameters can be downloaded from [here](https://dl.fbaipublicfiles.com/detr/detr-r50-e632da11.pth) for the ResNet50 backbone, and [here](https://dl.fbaipublicfiles.com/detr/detr-r101-2c7b67e5.pth) for the ResNet101 backbone. For the V-COCO training, this pre-training has to be carried out because some images of the V-COCO evaluation set are contained in the training set of DETR. You have to pre-train PKR-HOI without those overlapping images by yourself for the V-COCO evaluation.
+Our Prior-HOI have to be pre-trained with the COCO object detection dataset. For the HICO-DET training, this pre-training can be omitted by using the parameters of DETR. The parameters can be downloaded from [here](https://dl.fbaipublicfiles.com/detr/detr-r50-e632da11.pth) for the ResNet50 backbone, and [here](https://dl.fbaipublicfiles.com/detr/detr-r101-2c7b67e5.pth) for the ResNet101 backbone. For the V-COCO training, this pre-training has to be carried out because some images of the V-COCO evaluation set are contained in the training set of DETR. You have to pre-train Prior-HOI without those overlapping images by yourself for the V-COCO evaluation.
 
 For HICO-DET, move the downloaded parameters to the `params` directory and convert the parameters with the following command.
 ```
@@ -241,10 +241,10 @@ V-COCO.
 
 || Scenario 1 | Scenario 2 |
 | :--- | :---: | :---: |
-|PKR-HOI (ResNet50)| 63.3 | 65.5 |
+|Prior-HOI (ResNet50)| 63.3 | 65.5 |
 
 HICO-DET.
 || Full | Rare | Non-rare |
 | :--- | :---: | :---: | :---: |
-|PKR-HOI (ResNet50)| 30.90 | 27.01 | 32.42 |
+|Prior-HOI (ResNet50)| 30.90 | 27.01 | 32.42 |
 
