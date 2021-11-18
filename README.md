@@ -246,5 +246,5 @@ V-COCO.
 HICO-DET.
 || Full | Rare | Non-rare |
 | :--- | :---: | :---: | :---: |
-|Prior-HOI (ResNet50)| 30.90 | 27.01 | 32.42 |
+|Prior-HOI (ResNet50)| 30.02 | 23.04 | 32.42 |
 
