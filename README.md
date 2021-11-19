@@ -99,31 +99,6 @@ python convert_parameters.py \
 ## Training
 After the preparation, you can start the training with the following command.
 
-For the HICO-DET training.
-```
-python main.py \
-        --pretrained params/detr-r50-pre-hico.pth \
-        --output_dir logs \
-        --hoi \
-        --dataset_file hico \
-        --hoi_path data/hico_20160224_det \
-        --resume logs/checkpoint.pth \
-        --num_obj_classes 80 \
-        --num_verb_classes 117 \
-        --backbone resnet50 \
-        --loss_hoi_weight 0.7 \
-    	--loss_detr_weight 0.3 \
-    	--loss_verbs_weight 0.7 \
-        --set_cost_bbox 2.5 \
-        --set_cost_giou 1 \
-        --bbox_loss_coef 2.5 \
-        --giou_loss_coef 1 \
-        --obj_loss_coef 1 \
-    	--loss_ce_detr 1 \
-    	--loss_bbox_detr 2.5 \
-    	--loss_giou_detr 1
-```
-
 For the V-COCO training.
 ```
 python main.py \
@@ -150,6 +125,30 @@ python main.py \
 ```
 Note that the number of object classes is 81 because one class is added for missing object.
 
+For the HICO-DET training.
+```
+python main.py \
+        --pretrained params/detr-r50-pre-hico.pth \
+        --output_dir logs \
+        --hoi \
+        --dataset_file hico \
+        --hoi_path data/hico_20160224_det \
+        --resume logs/checkpoint.pth \
+        --num_obj_classes 80 \
+        --num_verb_classes 117 \
+        --backbone resnet50 \
+        --loss_hoi_weight 0.7 \
+    	--loss_detr_weight 0.3 \
+    	--loss_verbs_weight 0.7 \
+        --set_cost_bbox 2.5 \
+        --set_cost_giou 1 \
+        --bbox_loss_coef 2.5 \
+        --giou_loss_coef 1 \
+        --obj_loss_coef 1 \
+    	--loss_ce_detr 1 \
+    	--loss_bbox_detr 2.5 \
+    	--loss_giou_detr 1
+```
 If you have multiple GPUs on your machine, you can utilize them to speed up the training. The number of GPUs is specified with the `--nproc_per_node` option. You can also specify the GPU number use `CUDA_VISIBLE_DEVICES` option. The following command starts the training with 8 GPUs for the HICO-DET training.
 ```
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
