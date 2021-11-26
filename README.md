@@ -178,7 +178,7 @@ python -m torch.distributed.launch \
     	--loss_giou_detr 1
 ```
 
-In addition, if you have only 4 GPUs available，then you can add a parameter `--simulate_double_gpus 1` which is used to simulate double GPUs and you can set its value to 0 to cancel this function. By the way, the parameter `--batch_size` should be doubled  at the same time. 
+In addition, if you have only 4 GPUs available，then you can add a parameter `--simulate_double_gpus 1` and you must set its value to 0 to cancel this function. By the way, the parameter `--batch_size` should be doubled  at the same time. 
 
 Examples of matched parameters:
 
