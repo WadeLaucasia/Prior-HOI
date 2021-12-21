@@ -152,7 +152,7 @@ python -m torch.distributed.launch \
         --batch_size 4 \
         ...(other parameters)
 ```
-
+## Evaluation
 For the official evaluation of V-COCO, a pickle file of detection results have to be generated. You can generate the file as follows.
 ```
 python generate_vcoco_official.py \
