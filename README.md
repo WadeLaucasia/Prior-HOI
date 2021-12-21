@@ -125,59 +125,6 @@ python main.py \
 ```
 Note that the number of object classes is 81 because one class is added for missing object.
 
-For the HICO-DET training.
-```
-python main.py \
-        --pretrained params/detr-r50-pre-hico.pth \
-        --output_dir logs \
-        --hoi \
-        --dataset_file hico \
-        --hoi_path data/hico_20160224_det \
-        --resume logs/checkpoint.pth \
-        --num_obj_classes 80 \
-        --num_verb_classes 117 \
-        --backbone resnet50 \
-        --loss_hoi_weight 0.7 \
-    	--loss_detr_weight 0.3 \
-    	--loss_verbs_weight 0.7 \
-        --set_cost_bbox 2.5 \
-        --set_cost_giou 1 \
-        --bbox_loss_coef 2.5 \
-        --giou_loss_coef 1 \
-        --obj_loss_coef 1 \
-    	--loss_ce_detr 1 \
-    	--loss_bbox_detr 2.5 \
-    	--loss_giou_detr 1
-```
-If you have multiple GPUs on your machine, you can utilize them to speed up the training. The number of GPUs is specified with the `--nproc_per_node` option. You can also specify the GPU number use `CUDA_VISIBLE_DEVICES` option. The following command starts the training with 8 GPUs for the HICO-DET training.
-```
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-python -m torch.distributed.launch \
-        --nproc_per_node=8 \
-        --use_env \
-        main.py \
-        --pretrained params/detr-r50-pre-hico.pth \
-        --output_dir logs \
-        --hoi \
-        --dataset_file hico \
-        --hoi_path data/hico_20160224_det \
-        --resume logs/checkpoint.pth \
-        --num_obj_classes 80 \
-        --num_verb_classes 117 \
-        --backbone resnet50 \
-        --loss_hoi_weight 0.7 \
-    	--loss_detr_weight 0.3 \
-    	--loss_verbs_weight 0.7 \
-        --set_cost_bbox 2.5 \
-        --set_cost_giou 1 \
-        --bbox_loss_coef 2.5 \
-        --giou_loss_coef 1 \
-        --obj_loss_coef 1 \
-    	--loss_ce_detr 1 \
-    	--loss_bbox_detr 2.5 \
-    	--loss_giou_detr 1
-```
-
 In addition, if you have only 4 GPUs available，then you can add a parameter `--simulate_double_gpus 1` and you must set its value to 0 to cancel this function. By the way, the parameter `--batch_size` should be doubled  at the same time. 
 
 Examples of matched parameters:
@@ -206,25 +153,6 @@ python -m torch.distributed.launch \
         ...(other parameters)
 ```
 
-
-
-## Evaluation
-The evaluation is conducted at the end of each epoch during the training. The results are written in `logs/log.txt`.
-
-You can also conduct the evaluation with trained parameters as follows.
-```
-python main.py \
-        --pretrained pkr_hoi_resnet50_hico.pth \
-        --hoi \
-        --dataset_file hico \
-        --hoi_path data/hico_20160224_det \
-        --num_obj_classes 80 \
-        --num_verb_classes 117 \
-        --backbone resnet50 \
-        --eval
-
-```
-
 For the official evaluation of V-COCO, a pickle file of detection results have to be generated. You can generate the file as follows.
 ```
 python generate_vcoco_official.py \
@@ -233,7 +161,6 @@ python generate_vcoco_official.py \
         --hoi_path data/v-coco
 
 ```
-
 ## Results
 
 V-COCO.
